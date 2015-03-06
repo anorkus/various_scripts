@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import os
 import subprocess
 
@@ -41,7 +43,7 @@ def get_cookies(instance_url):
 			proc = subprocess.Popen(__args, stdout=subprocess.PIPE)
 			proc_out = proc.communicate()[0]
 		except Exception as ex:
-			print "Shit happened while getting cookie. Reason: %s" % (str(ex))
+			print "Error getting cookie. Reason: %s" % (str(ex))
 			return False
 	return True
 
@@ -87,6 +89,7 @@ def check_service(name, url):
 		send_sms(msg)
 
 if __name__ == '__main__':
+	#print "Working dir: %s" % (os.getcwd()) ##DEBUG
 	__success = False
 	__success = get_cookies(__SERVICES_LIST["McM"])
 	if not __success:
@@ -101,3 +104,10 @@ if __name__ == '__main__':
 
 	for elem in __SERVICES_LIST:
 		check_service(elem, __SERVICES_LIST[elem])
+
+	## clean up of cookie files
+	if os.path.exists(__DEV_COOKIE):
+		os.remove(__DEV_COOKIE)
+
+	if os.path.exists(__PROD_COOKIE):
+		os.remove(__PROD_COOKIE)
