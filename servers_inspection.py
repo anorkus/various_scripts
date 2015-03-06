@@ -1,7 +1,6 @@
 import os
 import subprocess
 
-
 __MOBILE = "0041767098127@mail2sms.sunrise.ch"
 __SERVICES_LIST = {
 	"McM" : "https://cms-pdmv.cern.ch/mcm/",
@@ -12,7 +11,7 @@ __SERVICES_LIST = {
 	"McM-dev DB" : "https://cms-pdmv-dev.cern.ch/mcm/admin/",
 	## fake lucene query 
 	"McM-dev DB lucene" : "https://cms-pdmv-dev.cern.ch/mcm/admin/users/_fti/_design/lucene/search?q=username:anorkus",
-	#"McM-int" : "https://cms-pdmv-int.cern.ch/mcm/", #????
+	#"McM-int" : "https://cms-pdmv-int.cern.ch/mcm/", ## do we need to check -int -> needs a cookie
 	"stats" : "https://cms-pdmv-dev.cern.ch/stats/",
 	"stats DB" : "https://cms-pdmv-dev.cern.ch/stats/",
 	"DQMHisto" : "http://cms-dqm-histo/static/index.html?search_histo_name=true"
@@ -87,12 +86,8 @@ def check_service(name, url):
 		msg = "Error checking %s ERROR code: %s" % (name, proc_out)
 		send_sms(msg)
 
-
-
-
 if __name__ == '__main__':
 	__success = False
-	message = ""
 	__success = get_cookies(__SERVICES_LIST["McM"])
 	if not __success:
 		message = "Error getting -prod cookie"
