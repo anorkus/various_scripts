@@ -29,11 +29,14 @@ def get_cookies(instance_url):
     dev_instance = False
     if "dev" in instance_url:
         dev_instance = True
+
     if dev_instance:
         cookie_name = __DEV_COOKIE
     else:
         cookie_name = __PROD_COOKIE
+
     if os.path.exists(cookie_name):
+        print "Cookie already exists"
         return True
     else:
         try:
@@ -42,9 +45,11 @@ def get_cookies(instance_url):
 
             proc = subprocess.Popen(__args, stdout=subprocess.PIPE)
             proc_out = proc.communicate()[0]
+            print "get_cookie return code: %s" % (proc.returncode)
         except Exception as ex:
             print "Error getting cookie. Reason: %s" % (str(ex))
             return False
+
     return True
 
 def send_sms(msg):
@@ -86,7 +91,11 @@ def check_service(name, url):
 
     if proc_out != "200":
         msg = "Error checking %s ERROR code: %s" % (name, proc_out)
-        send_sms(msg)
+        if proc_out == "302":
+            print "Checking was redirected!!"
+            print msg
+        else:
+            send_sms(msg)
 
 if __name__ == '__main__':
     #print "Working dir: %s" % (os.getcwd()) ##DEBUG
