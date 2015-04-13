@@ -12,7 +12,7 @@ __SERVICES_LIST = {
     "McM-dev" : "https://cms-pdmv-dev.cern.ch/mcm/",
     "McM-dev DB" : "https://cms-pdmv-dev.cern.ch/mcm/admin/",
     ## fake lucene query
-    "McM-dev DB lucene" : "https://cms-pdmv-dev.cern.ch/mcm/admin/users/_fti/_design/lucene/search?q=username:anorkus",
+    "McM-dev DB lucene" : "http://vocms085:5984/_fti/local/users/_design/lucene/search?q=username:anorkus",
     #"McM-int" : "https://cms-pdmv-int.cern.ch/mcm/", ## do we need to check -int -> needs a cookie
     "stats" : "https://cms-pdmv-dev.cern.ch/stats/",
     "stats DB" : "https://cms-pdmv-dev.cern.ch/stats/",
