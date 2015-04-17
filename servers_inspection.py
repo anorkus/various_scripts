@@ -8,7 +8,7 @@ __SERVICES_LIST = {
     "McM" : "https://cms-pdmv.cern.ch/mcm/",
     "McM DB" : "https://cms-pdmv.cern.ch/mcm/admin/",
     ## fake lucene query
-    "McM DB lucene" : "https://cms-pdmv.cern.ch/mcm/admin/users/_fti/_design/lucene/search?q=username:anorkus",
+    "McM DB lucene" : "http://vocms090:5984/_fti/local/users/_design/lucene/search?q=username:anorkus",
     "McM-dev" : "https://cms-pdmv-dev.cern.ch/mcm/",
     "McM-dev DB" : "https://cms-pdmv-dev.cern.ch/mcm/admin/",
     ## fake lucene query
