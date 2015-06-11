@@ -16,7 +16,8 @@ __SERVICES_LIST = {
     #"McM-int" : "https://cms-pdmv-int.cern.ch/mcm/", ## do we need to check -int -> needs a cookie
     "stats" : "https://cms-pdmv-dev.cern.ch/stats/",
     "stats DB" : "https://cms-pdmv-dev.cern.ch/stats/",
-    "DQMHisto" : "http://cms-dqm-histo/static/index.html?search_histo_name=true"
+    "DQMHisto" : "http://cms-dqm-histo/static/index.html?search_histo_name=true",
+    "RelMonService-dev" : "https://cms-pdmv-dev.cern.ch/relmonsvc"
 }
 
 __PROD_COOKIE = "prod-cookie.txt"
