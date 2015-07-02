@@ -3,7 +3,7 @@
 import os
 import subprocess
 
-__MOBILE = "0041767098127@mail2sms.sunrise.ch"
+__MOBILE = "+41767098127@mail2sms.cern.ch"
 __SERVICES_LIST = {
     "McM" : "https://cms-pdmv.cern.ch/mcm/",
     "McM DB" : "https://cms-pdmv.cern.ch/mcm/admin/",
